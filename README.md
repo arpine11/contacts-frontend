@@ -1,58 +1,92 @@
-# Contacts Management Application
+# Contacts Manager (Frontend)
 
-This project is a simple full-stack Contacts Management application.
-It consists of a backend REST API and a frontend client that allows users
-to register, log in, and manage their personal contacts.
+This project is a simple frontend application that connects to the
+Contacts Management API. It allows users to register, log in, and manage
+their personal contacts through a clean and minimal interface.
 
-The main goal of the project is to demonstrate authentication,
-authorization, and CRUD operations.
+The frontend focuses on user interaction and communication with the backend.
+
+---
+
+## Core Concepts
+
+- **Frontend UI**: user interface for interacting with the system
+- **API communication**: frontend sends HTTP requests to backend
+- **JWT handling**: token stored and reused for authenticated requests
+- **State management**: UI updates dynamically without page reloads
 
 ---
 
 ## Features
+
 - User registration
-- User login with JSON Web Tokens (JWT)
-- Create new contacts
-- View list of contacts
+- User login
+- Persistent authentication using localStorage
+- Display list of contacts
+- Add new contacts
 - Edit existing contacts
-- Authorization: each user can access and manage only their own contacts
+- Logout functionality
 
 ---
 
 ## Tech Stack
 
-### Backend
-- Node.js
-- Express.js
-- SQLite (better-sqlite3)
-- JSON Web Tokens (JWT)
-- bcryptjs
+- **HTML** – Structure
+- **CSS** – Styling
+- **Vanilla JavaScript** – Logic and API communication
 
-### Frontend
-- HTML
-- CSS
-- Vanilla JavaScript
+No frameworks or libraries are used.
 
 ---
 
-## Project Structure (Overview)
+## Project Structure
 
-### Backend
-- server.js  
-- src/db/database.js  
-- src/middleware/auth.js  
-- src/routes/auth.js  
-- src/routes/contacts.js  
+contacts-frontend/
+├── index.html
+├── styles.css
+├── app.js
+└── README.md
 
-### Frontend
-- index.html  
-- styles.css  
-- app.js  
+
+### File Explanation
+- `index.html` – Main HTML layout
+- `styles.css` – Styling and layout
+- `app.js` – Application logic and API calls
 
 ---
 
-## Backend Setup Instructions
+## How the Frontend Works
 
-1. Install dependencies
-```bash
-npm install
+1. User registers or logs in
+2. Backend returns a JWT token
+3. Token is stored in `localStorage`
+4. All future API requests include the token
+5. Contacts are fetched and rendered dynamically
+6. User actions update the backend and UI in real time
+
+---
+
+## Setup Instructions
+
+### 1. Start the backend server
+The backend must be running at:
+http://localhost:4000
+
+
+### 2. Open the frontend
+Simply open the `index.html` file in your browser.
+
+No additional setup or build process is required.
+
+---
+
+## API Communication Example
+
+The frontend communicates with the backend using `fetch`:
+
+```js
+fetch("http://localhost:4000/contacts", {
+  headers: {
+    Authorization: "Bearer <JWT_TOKEN>"
+  }
+})
