@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Contacts Manager</h1>
+
+    <section id="authSection">
+      <h2>Register / Login</h2>
+
+      <div class="row">
+        <input id="username" placeholder="Username" />
+        <input id="password" placeholder="Password" type="password" />
+      </div>
+
+      <div class="row">
+        <button id="registerBtn">Register</button>
+        <button id="loginBtn">Login</button>
+        <button id="logoutBtn" class="secondary hidden">Logout</button>
+      </div>
+
+      <p id="authMessage" class="message"></p>
+    </section>
+
+    <section id="contactsSection" class="hidden">
+      <h2>Your Contacts</h2>
+
+      <form id="contactForm">
+        <input id="contactName" placeholder="Name *" required />
+        <input id="contactEmail" placeholder="Email" />
+        <input id="contactPhone" placeholder="Phone" />
+        <button type="submit" id="saveBtn">Add Contact</button>
+        <button type="button" id="cancelEditBtn" class="secondary hidden">Cancel Edit</button>
+      </form>
+
+      <ul id="contactsList"></ul>
+      <p id="contactsMessage" class="message"></p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
